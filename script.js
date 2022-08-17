@@ -53,8 +53,6 @@ const compareNumbers = function () {
         document.querySelector('.number').style.width = '30rem';
         document.querySelector('.check').disabled = true;
 
-        // Code is present in the Snippet #1 of Waste.js which may be used here
-
         // Assign the high score if the score is high
         if (score > highScore) {
             highScore = score;
@@ -63,11 +61,9 @@ const compareNumbers = function () {
         gameEnd = true;
     }
 }
-// Logic to compare the secrete Number and the Guess Number 
-document.querySelector('.check').addEventListener('click', compareNumbers);
 
-// Reassign all the default values on clicking again
-document.querySelector('.again').addEventListener('click', function () {
+// Function #2 Reset the game 
+const resetGame = function () {
     score = 20;
     document.querySelector('.score').textContent = score;
     secreteNumber = Math.trunc(Math.random() * (20 - 10)) + 10;
@@ -77,6 +73,10 @@ document.querySelector('.again').addEventListener('click', function () {
     document.querySelector('.number').textContent = '?';
     document.querySelector('.number').style.width = '15rem';
     document.querySelector('.check').disabled = false;
-});
+}
 
-// IF game is ended, replace the Check button with "Again"
+// Logic to compare the secrete Number and the Guess Number 
+document.querySelector('.check').addEventListener('click', compareNumbers);
+
+// Reassign all the default values on clicking again
+document.querySelector('.again').addEventListener('click', resetGame);
