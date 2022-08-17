@@ -13,8 +13,10 @@ let score = Number(document.querySelector('.score').textContent);
 let highScore = Number(document.querySelector('.highscore').textContent);
 let gameEnd = false;
 
-// Logic to compare the secrete Number and the Guess Number 
-document.querySelector('.check').addEventListener('click', function () {
+// Define all the functions to ensure the logic of the game
+
+// Function #1 Compare the Guess and the Secrete Number to print the result message
+const compareNumbers = function () {
     // Define the code to catch the guess number
     const guess = Number(document.querySelector('.guess').value);
 
@@ -60,7 +62,9 @@ document.querySelector('.check').addEventListener('click', function () {
         }
         gameEnd = true;
     }
-});
+}
+// Logic to compare the secrete Number and the Guess Number 
+document.querySelector('.check').addEventListener('click', compareNumbers);
 
 // Reassign all the default values on clicking again
 document.querySelector('.again').addEventListener('click', function () {
